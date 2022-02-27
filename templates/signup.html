@@ -1,0 +1,79 @@
+{% extends 'base_login_signup.html' %}
+{% block login_signup %}
+
+<style>
+.flashes{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding:10px;
+    list-style: none;
+    background-color: red;
+	z-index: 100;
+}
+	
+</style>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<div class="container" style="top:5%">
+		<form action="#" method="post">
+			<div class="mb-2">
+				<h1 class="display-4" align="center">Signup</h1>
+			</div>
+			<hr>
+            
+			<div class="mb-2">
+				<label for="first_name" class="form-label">Name</label>
+				<input type="text" name="first_name" class="form-control" id="first_name" required autocomplete="off">
+			</div>
+            
+			<div class="mb-2">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" name="email" class="form-control" id="email" required autocomplete="off">
+			</div>
+            
+			<div class="mb-2">
+				<label for="phone_no" class="form-label">Phone no</label>
+				<input type="number" name="phone_no" class="form-control" id="phone_no" required autocomplete="off" min="1000000000"max="9999999999">
+			</div>
+
+			<div class="mb-2">
+				<label for="username" class="form-label">Username</label>
+				<input type="text" name="username" class="form-control" id="username" required autocomplete="off">
+			</div>
+			<div class="mb-2">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" name="password" class="form-control" id="password" required maxlength="16"
+					autocomplete="off">
+			</div>
+			<div class="mb-2">
+				<label for="confirm_password" class="form-label">Confirm Password</label>
+				<input type="text" name="confirm_password" class="form-control" id="confirm_password" required maxlength="16"
+					autocomplete="off">
+			</div>
+			<button type="submit" class="btn btn-dark">Signup</button>
+
+		</form>
+	</div>
+</div>
+<script>
+		password=""
+		password=prompt("Enter admin password")
+		if( password!="admin"){
+			history.back()
+		}
+			
+
+</script>    
+{% endblock login_signup %}
+

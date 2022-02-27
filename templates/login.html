@@ -1,0 +1,39 @@
+{% extends 'base_login_signup.html' %}
+{% block login_signup %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+<div class="container">
+	<div class="leftbox">
+		<img src="/static/images/Salecall.png" class="salescallimg">
+	</div>
+
+	<div class="rightbox">
+		<form action="#" method="post">
+			<div class="mb-3">
+				<h1 class="display-4" align="center">Login</h1>
+			</div>
+			<hr>
+			<div class="mb-4  mt-5">
+				<label for="username" class="form-label">Username</label>
+				<input type="text" name="username" class="form-control" id="username" required autocomplete="off">
+			</div>
+			<div class="mb-4">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" name="password" class="form-control" id="password" required autocomplete="off">
+			</div>
+			<button type="submit" class="btn btn-dark">LOGIN</button>
+
+		</form>
+		<a href="{{url_for('signup')}}"><button class="btn btn-dark">SIGN UP</button></a>
+		<a target="_blank" href="{{url_for('customer_page')}}"><button class="btn btn-dark">CONTINUE AS GUEST</button></a>
+	</div>
+</div>
+{% endblock login_signup %}

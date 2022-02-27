@@ -1,0 +1,157 @@
+body{
+    min-height: 1000px;
+    background-image:linear-gradient(-180deg,rgb(6, 73, 100),skyblue); 
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+}
+.flashes{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding:10px;
+    list-style: none;
+    background-color: red;
+}
+
+.sidebar{
+    position: fixed;
+    width:15%;
+    height: 100%;
+    color: white;
+    background-color: #34425a;
+    text-align: center;
+    z-index: 1;
+    overflow-x: hidden;  
+    
+}
+
+.user{
+    padding: 20px;
+    height:150px;
+    width: auto;
+    margin-bottom: 20%;
+}
+
+.sidebar a{
+    display: block;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    padding: 15px;
+    width: auto;
+}
+
+.sidebar a:hover,a:active{
+    background-color:#2b384e;
+    font-weight: bolder;
+    color: white;
+    transform: rotateY(360deg);
+    transition: ease-in 0.5s;
+}
+
+nav{
+    position: fixed;
+    left: 15%;
+    width: 100%;
+    background-color: white;
+    top:0px;
+    left: 15%;
+    padding: 15px;
+    z-index: 1;
+}
+
+.Main_profiles,.Main_prioritize,.Main_contact_us,.Main_leadquality{
+    width:85%;
+    min-height: 100%;
+    position: absolute;
+    left: 15%;
+    top:10%;
+    visibility: collapse;
+    
+}
+
+.Main_profiles{
+    visibility: visible;
+}
+
+.Container{
+    position: relative;
+    left: 7.5%;
+    top:15%;
+    margin-top: 50px;
+    height: max-content;
+    width: 1000px;
+    background-color: #ffffff;
+    border: 5px outset gold;
+    border-radius:15px 50px;
+    padding:20px;
+    display: flexbox;
+}
+
+.profile_card{
+    padding: 20px;
+    box-shadow: 0px 0px 5px 5px gray;
+    min-height: 270px;
+    border-radius:15px 50px;
+}
+
+.leftbox{
+    float: left;
+    width: 50%;
+    height: 300px;
+    padding: 20px;
+    border-right: 1px ridge gray;
+    
+}
+.rightbox{
+    float: right;
+    width: 50%;
+    height: 300px;
+    padding: 20px;
+
+}
+
+.details{
+    margin-left: 20px;
+    display: inline-block;
+    border-left: 2px solid black;
+    padding-left: 20px;
+    height: 100%;
+    font-weight: bold;
+}
+
+
+.field{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input{
+    display: block;
+    margin-top: 10px;
+    width:250px;
+    height: 40px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+}
+
+button{
+    width: 30%;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: green;
+    border-radius: 40px 40px 40px 40px;
+    color: white;
+    border: 1px solid green;
+    box-shadow: 0px 0px 2px 2px gray;
+    position: relative;
+    top:10px;
+    left:60%;
+}
+
+button:hover{
+    background-color: darkgreen;
+}
