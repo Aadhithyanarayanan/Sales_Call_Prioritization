@@ -36,7 +36,7 @@ class customer(db.Model):
     firstname=db.Column(db.String(50))
     lastname=db.Column(db.String(50))
     gender=db.Column(db.String(50))
-    dob=db.Column(db.Date)
+    dob=db.Column(db.String(50))
     personphone=db.Column(db.String(50))
     city=db.Column(db.String(50))
     statename=db.Column(db.String(50))
