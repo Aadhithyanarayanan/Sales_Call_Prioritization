@@ -8,7 +8,7 @@ from model import model_function
 
 # database initialisation
 app = Flask(__name__)
-ENV = 'dev'
+ENV = 'prod'
 
 
 if ENV == 'dev':
