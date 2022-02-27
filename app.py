@@ -143,8 +143,10 @@ def customer_page():
         scur.execute(query)
         SNO=scur.fetchall()
         scur.close()
-        conn.close()        
+        conn.close()   
 
+        print(SNO[0][0]+1,fname,lname,gender,dob,phno,city,statename,zip,primarylanguage,primaryoccupation,maxeducation,annualincome,maritalstatus,productcategory)
+        
         obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
         statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
         db.session.add(obj)
