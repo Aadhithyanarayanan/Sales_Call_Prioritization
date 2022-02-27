@@ -226,8 +226,6 @@ def user(username, name, email, phone_no):
         scur.close()
         conn.close()
 
-        flash(f"{fname}");
-
         obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
         statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
         db.session.add(obj)

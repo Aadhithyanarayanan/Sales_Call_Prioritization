@@ -82,7 +82,15 @@
 
 
     <div class="Main_customer">
-
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         <h1 style="margin-top:30px;margin-left:20px;color:white">New Customer Data</h1>
 
         <section class="Container">

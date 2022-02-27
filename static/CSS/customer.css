@@ -1,6 +1,6 @@
 body{
     height: 1500px;
-    background-image:linear-gradient(180deg,orange,yellow);
+    background-image:linear-gradient(-180deg,skyblue,rgb(6, 73, 100));
     
 }
 
