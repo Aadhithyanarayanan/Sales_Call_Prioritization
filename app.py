@@ -26,6 +26,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+Host='ec2-44-194-113-156.compute-1.amazonaws.com'
+Database="db31h9p5e5bgg0"
+User="wqffheawwyxqhy"
+Password="aa77bd3b6e207adb85a1a53470516a50ed85530e77b502bf334bf6c40582a4ad"
 
 class customer(db.Model):
     sno=db.Column(db.Integer,primary_key=True)
@@ -109,7 +113,7 @@ def Login():
         if un is None:
             flash("Incorrect Username or This User does not exist in our database")
         elif un.Username == request.form['username'] and check_password_hash(un.Password, request.form['password'])==True:
-            return redirect(f"/home/{un.Username}/{un.First_name}/{un.Email}/{un.Phone_No}")
+            return redirect(url_for("user", username=un.Username, name=un.First_name, email=un.Email, phone_no=un.Phone_No))
         elif check_password_hash(un.Password, request.form['password'])==False:
             flash("incorrect password",category="message")
     return render_template('login.html')
@@ -132,8 +136,8 @@ def customer_page():
         maritalstatus=request.form['maritalstatus']
         annualincome=request.form['annualincome']
         productcategory=request.form['productcategory']
-        
-        conn = pg.connect(database="test", user="postgres", host="localhost", password="1234")
+
+        conn = pg.connect(database=Database, user=User, host=Host, password=Password)
         scur= conn.cursor()
         query="select max(sno) from customer"
         scur.execute(query)
@@ -151,7 +155,7 @@ def customer_page():
 
         query = "select * from customer"
 
-        conn = pg.connect(database="test", user="postgres", host="localhost", password="1234")
+        conn = pg.connect(database=Database, user=User, host=Host, password=Password)
         cur = conn.cursor()
         cur.execute(query)
 
@@ -168,7 +172,7 @@ def customer_page():
 
         conn.close()
 
-        conn= pg.connect(database="test", user="postgres", host="localhost", password="1234")
+        conn= pg.connect(database=Database, user=User, host=Host, password=Password)
         cur=conn.cursor()
         if o[0]==2:
             result='Best'
@@ -194,7 +198,7 @@ def user(username, name, email, phone_no):
 
     query="select * from customer order by datecreated  limit 1000"
 
-    con=pg.connect(database="test", user="postgres", host="localhost", password="1234")
+    con=pg.connect(database=Database, user=User, host=Host, password=Password)
     cur=con.cursor()
     cur.execute(query)
     detail=cur.fetchall()
@@ -206,7 +210,7 @@ def user(username, name, email, phone_no):
         stage = request.form['stage']
         primaryoccupation = request.form['primaryoccupation']
         
-        conn = pg.connect(database="test", user="postgres", host="localhost", password="1234")
+        conn = pg.connect(database=Database, user=User, host=Host, password=Password)
         scur= conn.cursor()
         query="select max(sno) from customer"
         scur.execute(query)
@@ -219,7 +223,7 @@ def user(username, name, email, phone_no):
 
         query = "select * from customer"
 
-        conn = pg.connect(database="test", user="postgres", host="localhost", password="1234")
+        conn = pg.connect(database=Database, user=User, host=Host, password=Password)
         cur = conn.cursor()
         cur.execute(query)
 
@@ -241,7 +245,7 @@ def user(username, name, email, phone_no):
 
         conn.close()
 
-        conn= pg.connect(database="test", user="postgres", host="localhost", password="1234")
+        conn= pg.connect(database=Database, user=User, host=Host, password=Password)
         cur=conn.cursor()
 
         cur.execute(f"update customer set leadquality='{result}' where sno={SNO[0][0]+1}")
