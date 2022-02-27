@@ -187,7 +187,7 @@ def customer_page():
         cur.close()
         conn.close()
 
-
+        redirect(url_for(Login))
     return render_template("customer.html")
 
 
