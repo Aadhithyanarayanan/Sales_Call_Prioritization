@@ -30,7 +30,7 @@ body{
     border-radius: 10px 10px 10px 10px;
     color:darkblue;
     position: absolute;
-    top: 75px;
+    margin-top: 28px;
     left: 45%;
     font-family: 'Trocchi', serif;
     display: inline;
