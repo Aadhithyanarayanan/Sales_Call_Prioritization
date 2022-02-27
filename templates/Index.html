@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    
+
     <div class="sidebar">
 
         <div class="user">
@@ -26,10 +26,8 @@
 
         <a href="#" id="profiles" style="background-color: #2b384e;"><img
                 src="/static/icons/dashboard.svg"><br>Profile</a>
-        <a href="#" id="prioritize"><img src="/static/icons/call.svg"><br>Prioritize</a>
-        <a href="#" id="leadQuality"><img src="/static/icons/lead.svg"><br>LeadQuality</a>
-        <a href="#" id="contact_us"><img src="/static/icons/contact us.svg"><br>Contact US</a>
-
+        <a href="#" id="customer"><img src="/static/icons/call.svg"><br>New Customer Data</a>
+        <a href="#" id="leadQuality"><img src="/static/icons/lead.svg"><br>Customer Priority</a>
 
     </div>
 
@@ -38,8 +36,8 @@
     <nav>
         <a href="#" id="menu"><img src="/static/icons/menu.png"></a>
         <img src="/static/images/Suyati-logo-01.svg" height="50" width="150">
-        <a href="/" style="position: fixed; left:90%;top:5%;text-decoration: none;"><img src="/static/icons/logout.svg"><b
-                style="color:black;margin-left: 5px;">LOGOUT</b></a>
+        <a href="/" style="position: fixed; left:90%;top:5%;text-decoration: none;"><img
+                src="/static/icons/logout.svg"><b style="color:black;margin-left: 5px;">LOGOUT</b></a>
     </nav>
 
 
@@ -56,19 +54,23 @@
                     <hr>
                     <table height="150px" cellpadding='15'>
                         <tr>
-                            <td>Name</td><td>{{name}}</td>
+                            <td>Name</td>
+                            <td>{{name}}</td>
                         </tr>
                         <tr>
-                            <td>Email</td><td>{{email}}</td>
+                            <td>Email</td>
+                            <td>{{email}}</td>
                         </tr>
                         <tr>
-                            <td>UserID</td><td>{{userid}}</td>
+                            <td>UserID</td>
+                            <td>{{userid}}</td>
                         </tr>
                         <tr>
-                            <td>Phone No</td><td>{{phone_no}}</td>
-                        </tr>      
+                            <td>Phone No</td>
+                            <td>{{phone_no}}</td>
+                        </tr>
                     </table>
-                    
+
                 </div>
             </div>
         </section>
@@ -76,71 +78,160 @@
     </div>
 
 
-    
 
 
-    <div class="Main_prioritize">
 
-        <h1 style="margin-top:30px;margin-left:20px;color:white">Prioritize</h1>
+    <div class="Main_customer">
+
+        <h1 style="margin-top:30px;margin-left:20px;color:white">New Customer Data</h1>
 
         <section class="Container">
-
-            <form  method="post">
+            <form action="#" method="post">
                 <div class="leftbox">
+
+
                     <div class="field">
-                        <label for="PersonId">PersonId</label>
-                        <input type="text" name="personid" class="form-control" id="personid" required autocomplete="off">
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="fname">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lname">
+                        </div>
                     </div>
 
                     <div class="field">
-                        <label for="name">Max Education</label>                       
-                        <select class="form-select" aria-label="Default select example" name='maxeducation'>
-                            <option value="Postgraduate">Postgraduate</option>
-                            <option value="Doctorate">Doctorate</option>
-                            <option value="Undergraduate">Undergraduate</option>
-                            <option value="Secondary school">Secondary school</option>
-                            <option value="Elementary school">Elementary school</option>
-                          </select>
-
+                        <label class="form-label">Gender</label>
+                        <div class="gender">
+                            <input class="form-check-input" type="radio" name="gender" value="Male">
+                            <label class="form-check-label">Male</label>
+                            <input class="form-check-input" type="radio" name="gender" value="Female">
+                            <label class="form-check-label">Female</label>
+                        </div>
                     </div>
 
                     <div class="field">
-                        <label for="priority">Annual Income</label>
-                        <input type="text" name="annualincome" class="form-control" id="annualincome" required autocomplete="off">
+                        <label class="mt-3" class="form-label">Date Of Birth</label><br>
+                        <input class="mb-3" type="date" name="dob">
                     </div>
+
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" name="phno">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" name="statename">
+                        </div>
+                    </div>
+
+
                 </div>
-                
+
                 <div class="rightbox">
+
                     <div class="field">
-                        <label for="priority">Stage</label>
-                        <select class="form-select" aria-label="Default select example" name='stage'>
-                            <option value="Proposal/Price Quote">Proposal/Price Quote</option>
-                            <option value="follow-up">follow-up</option>
-                            <option value="Negotiation/Review">Negotiation/Review</option>
-                            <option value="Closed Lost">Closed Lost</option>
-                            <option value="Closed Won">Closed Won</option>
-                            <option value="Prospecting">Prospecting</option>
-                        </select>
-                        
-                        
+
+                        <div class="mb-3">
+                            <label class="form-label">Zip</label>
+                            <input type="number" class="form-control" name="zip">
+                        </div>
                     </div>
 
-                    
                     <div class="field">
-                        <label for="priority">Primary Occupation</label> 
-                        <select class="form-select" aria-label="Default select example" name='primaryoccupation'>
-                            <option value="Salaried">Salaried</option>
-                            <option value="Business">Business</option>
-                            <option value="Self employed">Self employed</option>
-                            <option value="Unemployed">Unemployed</option>
-                        </select>
-                       
-                      
-                        
-                        
+                        <div class="mb-3">
+                            <label class="form-label">Primary Language</label>
+                            <select class="form-select" name="primarylanguage">
+                                <option selected></option>
+                                <option value="English">English</option>
+                                <option value="Hindi">Hindi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+
+                        <div class="mb-3">
+                            <label class="form-label">Primary Occupation</label>
+                            <select class="form-select" name="primaryoccupation">
+                                <option selected></option>
+                                <option value="Salaried">Salaried</option>
+                                <option value="Business">Business</option>
+                                <option value="Self employed">Self employed</option>
+                                <option value="Unemployed">Unemployed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">Maximum Education Level</label>
+                            <select class="form-select" name="maxeducation">
+                                <option selected></option>
+                                <option value="Postgraduate">Postgraduate</option>
+                                <option value="Doctorate">Doctorate</option>
+                                <option value="Undergraduate">Undergraduate</option>
+                                <option value="Secondary school">Secondary school</option>
+                                <option value="Elementary school">Elementary school</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="mb-3">
+                            <label class="form-label">Annual Income</label>
+                            <input type="number" class="form-control" name="annualincome">
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+
+                        <div class="mb-3">
+                            <label class="form-label">Marital Status</label>
+                            <select class="form-select" name="maritalstatus">
+                                <option selected></option>
+                                <option value="Married">Married</option>
+                                <option value="Unmarried">Unmarried</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+
+                        <div class="mb-3">
+                            <label class="form-label">Product Category</label>
+                            <select class="form-select" name="productcategory">
+                                <option selected></option>
+                                <option value="Auto Insurance">Auto Insurance</option>
+                                <option value="Home Insurance">Home Insurance</option>
+                                <option value="Life Insurance">Life Insurance</option>
+                                <option value="Disability Insurance">Disability Insurance</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" id="submit">SUBMIT</button>
+
+
+
+                <div class="mt-3">
+                    <button type="submit" id="Submit" class="btn btn-dark" style="width:100%">Submit</button>
+                </div>
             </form>
 
         </section>
@@ -149,18 +240,18 @@
 
     <div class="Main_leadquality">
 
-        <h1 style="margin-top:30px;margin-left:20px;color:white">Lead Quality</h1>
+        <h1 style="margin-top:30px;margin-left:20px;color:white">Customer Priority</h1>
 
         <section class="Container">
             <div style="height:500px;overflow-y: scroll;padding: 20px;">
-                <table class="table" >
-                      <tr>
+                <table class="table">
+                    <tr>
                         <th scope="col">#</th>
                         <th scope="col">Firstname </th>
                         <th scope="col">Lastname</th>
                         <th scope="col">Phone No</th>
                         <th scope="col">Lead Quality</th>
-                      </tr>
+                    </tr>
                     </thead>
                     <tbody>
                         {% for i in people %}
@@ -170,28 +261,15 @@
                             <td>{{i[2]}}</td>
                             <td>{{i[5]}}</td>
                             <td>{{i[15]}}</td>
-                        </tr> 
+                        </tr>
                         {% endfor %}
                     </tbody>
-                  </table>
+                </table>
             </div>
         </section>
 
     </div>
 
-
-    <div class="Main_contact_us">
-
-        <h1 style="margin-top:30px;margin-left:20px;color:white">Contact Us</h1>
-
-        <section class="Container">
-
-            <h1>Contact Us</h1>
-
-        </section>
-
-    </div>
-    
 
     <script src="/static/JS/nav.js"></script>
     <script src="/static/JS/main.js"></script>

@@ -3,8 +3,7 @@
         var nav = document.getElementsByTagName("nav");
         var container=document.getElementsByClassName("Container");
         var main_profiles=document.getElementsByClassName("Main_profiles");
-        var main_prioritize=document.getElementsByClassName("Main_prioritize");
-        var main_contact_us=document.getElementsByClassName("Main_contact_us");
+        var main_customer=document.getElementsByClassName("Main_customer");
 
         var pressed = 0;
         menu.onclick = function () {
@@ -14,12 +13,9 @@
                 for (var i = 0; i < nav.length; i++)
                     nav[i].style.left = "15%";
 
-                for (var i = 0; i < main_prioritize.length; i++){
+                for (var i = 0; i < main_customer.length; i++){
                     main_profiles[i].style.left = "15%";
-                    main_prioritize[i].style.left = "15%";
-                    main_contact_us[i].style.left = "15%";
-
-                
+                    main_customer[i].style.left = "15%";                
                 }
 
                 for(var i=0;i<container.length;i++){
@@ -34,10 +30,9 @@
                     sidebar[i].style.visibility = "collapse";
                 for (var i = 0; i < nav.length; i++)
                     nav[i].style.left = "0%";
-                for (var i = 0; i < main_prioritize.length; i++){
+                for (var i = 0; i < main_customer.length; i++){
                     main_profiles[i].style.left = "0%";
-                    main_prioritize[i].style.left = "0%";
-                    main_contact_us[i].style.left = "0%";
+                    main_customer[i].style.left = "0%";
                     
                 }
 
