@@ -145,15 +145,12 @@ def customer_page():
         scur.close()
         conn.close()   
 
-        flash(f"{SNO[0][0]+1},{fname},{lname},{gender},{dob},{city},{statename},{zip},{primarylanguage},{primaryoccupation},{maxeducation},{annualincome},{maritalstatus},{productcategory}")
+        obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
+        statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
+        db.session.add(obj)
+        db.session.commit()
 
-        #obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
-        #statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
-        #db.session.add(obj)
-        #db.session.commit()
-
-
-        #flash("information entered Successfully")
+        flash("information entered Successfully")
 
         query = "select * from customer"
 
@@ -206,22 +203,37 @@ def user(username, name, email, phone_no):
     detail=cur.fetchall()
 
     if request.method == 'POST':
-        personid = request.form['personid']
-        maxeducation = request.form['maxeducation']
-        annualincome = request.form['annualincome']
-        stage = request.form['stage']
-        primaryoccupation = request.form['primaryoccupation']
-        
+        fname=request.form['fname']
+        lname=request.form['lname']
+        gender=request.form['gender'] 
+        dob=request.form['dob']
+        phno=request.form['phno']
+        city=request.form['city']
+        statename=request.form['statename']
+        zip=request.form['zip']
+        primarylanguage=request.form['primarylanguage']
+        primaryoccupation=request.form['primaryoccupation']
+        maxeducation=request.form['maxeducation']
+        maritalstatus=request.form['maritalstatus']
+        annualincome=request.form['annualincome']
+        productcategory=request.form['productcategory']
+
         conn = pg.connect(database=Database, user=User, host=Host, password=Password)
         scur= conn.cursor()
         query="select max(sno) from customer"
         scur.execute(query)
         SNO=scur.fetchall()
-        obj = customer(sno=SNO[0][0]+1,personId=personid, MaxEducation=maxeducation,PrimaryOccupation=primaryoccupation,Stage=stage,AnnualIncome=annualincome)
-        db.session.add(obj)
-        db.session.commit()
         scur.close()
         conn.close()
+
+        flash(f"{fname}");
+
+        obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
+        statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
+        db.session.add(obj)
+        db.session.commit()
+
+        flash("information entered Successfully")
 
         query = "select * from customer"
 
@@ -231,26 +243,29 @@ def user(username, name, email, phone_no):
 
         with open('final_table.csv', 'w') as f:
             writer = csv.writer(f, delimiter=',')
-            writer.writerow(('sno','personId', 'MaxEducation', 'PrimaryOccupation', 'Stage', 'AnnualIncome', 'leadquality'))
+            writer.writerow(("sno","firstname","lastname","gender","dob","personphone","city","statename","zip","primarylanguage","primaryocc","maxeducationlevel","maritalstatus","productcategory","annualincome","leadquality","datecreated"))
             for row in cur.fetchall():
                 writer.writerow(row)
 
         
         o=model_function()
-        if o[0]==2:
-            result='Best'
-        if o[0]==1:
-            result='Average'
-        if o[0]==3:
-            result='Poor'
+        
         cur.close()
 
         conn.close()
 
         conn= pg.connect(database=Database, user=User, host=Host, password=Password)
         cur=conn.cursor()
+        if o[0]==2:
+            result='Best'
+        if o[0]==1:
+            result='Average'
+        if o[0]==3:
+            result='Poor'
+        
+        result1 = result
 
-        cur.execute(f"update customer set leadquality='{result}' where sno={SNO[0][0]+1}")
+        cur.execute(f"update customer set leadquality='{result1}' where sno={SNO[0][0]+1}")
         conn.commit()
         cur.close()
         conn.close()
