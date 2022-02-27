@@ -109,8 +109,7 @@ def Login():
         if un is None:
             flash("Incorrect Username or This User does not exist in our database")
         elif un.Username == request.form['username'] and check_password_hash(un.Password, request.form['password'])==True:
-            #return redirect(url_for("user", username=un.Username, name=un.First_name, email=un.Email, phone_no=un.Phone_No))
-            return redirect("https://www.google.com/")
+            return redirect(f"/home/{un.Username}/{un.First_name}/{un.Email}/{un.Phone_No}")
         elif check_password_hash(un.Password, request.form['password'])==False:
             flash("incorrect password",category="message")
     return render_template('login.html')
