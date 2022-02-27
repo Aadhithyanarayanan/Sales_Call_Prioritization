@@ -138,15 +138,15 @@ def customer_page():
         query="select max(sno) from customer"
         scur.execute(query)
         SNO=scur.fetchall()
-        
+        scur.close()
+        conn.close()        
 
         obj=customer(sno=SNO[0][0]+1,firstname=fname,lastname=lname,gender=gender,dob=dob,personphone=phno,city=city,
         statename=statename,zip=zip,primarylanguage=primarylanguage,primaryocc=primaryoccupation,maxeducationlevel=maxeducation,annualincome=annualincome,maritalstatus=maritalstatus,productcategory=productcategory)
         db.session.add(obj)
         db.session.commit()
 
-        scur.close()
-        conn.close()
+
         flash("information entered Successfully")
 
         query = "select * from customer"
