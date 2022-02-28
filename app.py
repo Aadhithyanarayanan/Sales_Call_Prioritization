@@ -191,7 +191,7 @@ def customer_page():
 @app.route('/home/<username>/<name>/<email>/<phone_no>', methods={'GET', 'POST'})
 def user(username, name, email, phone_no):
 
-    query="select * from customer order by datecreated desc limit 1000"
+    query="select * from customer order by sno desc limit 100"
 
     con=pg.connect(database=Database, user=User, host=Host, password=Password)
     cur=con.cursor()
