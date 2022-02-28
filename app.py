@@ -6,10 +6,8 @@ import psycopg2 as pg
 import csv
 from model import model_function
 
-# database initialisation
 app = Flask(__name__)
 ENV = 'prod'
-
 
 if ENV == 'dev':
     app.debug = True
@@ -22,7 +20,6 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wqffheawwyxqhy:aa77bd3b6e207adb85a1a53470516a50ed85530e77b502bf334bf6c40582a4ad@ec2-44-194-113-156.compute-1.amazonaws.com:5432/db31h9p5e5bgg0'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 
 db = SQLAlchemy(app)
 
@@ -49,7 +46,6 @@ class customer(db.Model):
     annualincome=db.Column(db.String(50))
     leadquality=db.Column(db.String(50))
     datecreated = db.Column(db.DateTime(timezone=True), default=datetime.utcnow())
-
 
 
 class users(db.Model):
@@ -187,7 +183,7 @@ def customer_page():
         cur.close()
         conn.close()
 
-        redirect(url_for(Login))
+        redirect('/')
     return render_template("customer.html")
 
 
